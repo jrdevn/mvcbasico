@@ -1,0 +1,35 @@
+﻿
+
+    <div>
+        <form action="/Produto/Adiciona" method="post"> <!-- após o submit será dado o action e o method chamado o Adiciona()-->
+        @Html.AntiForgeryToken(); <!-- eu mando o token para a controller, ele valida. melhor contra ataques .. -->
+            <label for="nome"> Nome: </label>
+            <input id="nome" name="produto.Nome" value="@ViewBag.Produto.Nome" /> <!-- tem que ser o nome do objeto '.' sua propriedade, como nas classes e no banco. referenciar-->
+
+            @Html.ValidationMessage("produto.Nome"); <!-- passo o atributo produto.Nome como parametro se não passar pela validação feita na Model-->
+            @Html.ValidationMessage("produto.Invalido");
+            <label for="preco"> Preço: </label>
+            <input id="preco" name="produto.Preco" value="@ViewBag.Produto.Preco" class="form-control" /> <!-- carrega as informações que foram colocadas anteriormente, se for a primeira vez, carrega nada..-->
+
+            <label for="quantidade"> Quantidade: </label>
+            <input id="quantidade" name="produto.Quantidade" value="@ViewBag.Produto.Quantidade" class="form-control" />
+
+            <label for="descricao"> Descrição: </label>
+            <input id="descricao" name="produto.Descricao" value="@ViewBag.Produto.Descricao" class="form-control" />
+
+            <label for="categoria"> Nome: </label>
+            <select id="categoria" name="produto.CategoriaId" class="form-control" />
+
+            @foreach (var categoria in ViewBag.Categorias)
+            {
+
+                // condição
+                <option value="@categoria.Id" selected="@categoria.Id.Equals(ViewBag.Produto.CategoriaId)"> <!-- se for igual a categoria anterior ele já deixa a opção -->
+                    @categoria.Nome                                                                         <!-- o razor já cuida disso se for false ou true .. -->
+                </option>
+
+
+            }
+            <input type="submit" value="OK" />
+
+    
