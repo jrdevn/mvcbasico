@@ -1,4 +1,6 @@
 # mvcbasico
-MVC Básico, curso da Caelum. 
-Bem básico, apenas para referência, caso mais avançado há disponiveis no BitBucket ou Azure. 
-OBS: Fiz com Entity Framework, porém mudanças serão feitas pro NHibernate.
+basic mvc.
+
+- This code match in study plan. It is disponible in alura.
+- Study only for references, not working in professional. 
+Thanks. 
